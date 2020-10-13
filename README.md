@@ -1,3 +1,1 @@
-# msrest
-# Create denemes
 # cloudDeploy
