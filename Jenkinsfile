@@ -28,15 +28,10 @@ pipeline
             {
                 script 
                 {
-                    sh 'apt-get install \
-    apt-transport-https \
-    ca-certificates \
-    curl \
-    gnupg-agent \
-    software-properties-common'
-                    sh 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -'
-                    sh 'apt-get install docker-ce docker-ce-cli containerd.io'
-                    sh 'docker version'
+                    sh 'curl -fsSLO https://get.docker.com/builds/Linux/x86_64/docker-17.04.0-ce.tgz \
+  && tar xzvf docker-17.04.0-ce.tgz \
+  && mv docker/docker /usr/local/bin \
+  && rm -r docker docker-17.04.0-ce.tgz'
                     app = docker.build(DOCKER_IMAGE_NAME) 
                    
                 }
