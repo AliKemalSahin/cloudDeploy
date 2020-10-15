@@ -28,7 +28,12 @@ pipeline
             {
                 script 
                 {
-                    sh 'apt-get install \ apt-transport-https \ ca-certificates \ curl \ gnupg-agent \ software-properties-common'
+                    sh 'apt-get install \
+    apt-transport-https \
+    ca-certificates \
+    curl \
+    gnupg-agent \
+    software-properties-common'
                     sh 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg | apt-key add -'
                     sh 'apt-get install docker-ce docker-ce-cli containerd.io'
                     sh 'docker version'
