@@ -28,6 +28,8 @@ pipeline
             {
                 script 
                 {
+                    sh 'curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -'
+                    sh 'sudo apt-get install docker-ce docker-ce-cli containerd.io'
                     sh 'docker version'
                     app = docker.build(DOCKER_IMAGE_NAME) 
                    
