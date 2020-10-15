@@ -1,6 +1,8 @@
 pipeline 
 {
-    agent any
+    agent {
+    docker 'circleci/node:9.3-stretch-browsers'
+    }
     environment {
         DOCKER_IMAGE_NAME = "alikemal/deploycloud"
     }
@@ -27,16 +29,8 @@ pipeline
             steps 
             {
                 script 
-                {
-                 
-                    sh 'curl -fsSLO https://get.docker.com/builds/Linux/x86_64/docker-17.04.0-ce.tgz \
-
-  && tar xzvf docker-17.04.0-ce.tgz \
-  && chmod u+x+w+r /usr/local/bin/docker \
-  && mv docker/docker /usr/local/bin \
-  && rm -r docker docker-17.04.0-ce.tgz'
-                    app = docker.build(DOCKER_IMAGE_NAME) 
-                   
+                {          
+                    app = docker.build(DOCKER_IMAGE_NAME)  
                 }
             }
         }
