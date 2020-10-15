@@ -29,7 +29,8 @@ pipeline
                 script 
                 {
                     sh 'docker version'
-                    app = docker.build(DOCKER_IMAGE_NAME) 
+                    sh 'docker build -t $DOCKER_IMAGE_NAME .'
+                   
                 }
             }
         }
