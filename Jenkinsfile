@@ -1,8 +1,5 @@
 pipeline 
 {
-    agent {
-        docker { image 'node:14-alpine' }
-    }
     environment {
         DOCKER_IMAGE_NAME = "alikemal/deploycloud"
     }
