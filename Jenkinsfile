@@ -28,7 +28,6 @@ pipeline
             {
                 script 
                 {
-                    sh 'sudo apt-get install docker.io'
                     app = docker.build(DOCKER_IMAGE_NAME)  
                 }
             }
