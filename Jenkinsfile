@@ -1,8 +1,6 @@
 pipeline 
 {
-    agent {
-    docker 'circleci/node:9.3-stretch-browsers'
-    }
+    agent any
     environment {
         DOCKER_IMAGE_NAME = "alikemal/deploycloud"
     }
@@ -30,7 +28,7 @@ pipeline
             {
                 script 
                 {          
-                    app = docker.build(DOCKER_IMAGE_NAME)  
+                    sh 'gcloud builds submit --tag gcr.io/future-pulsar-292310/clouddeploy' 
                 }
             }
         }
