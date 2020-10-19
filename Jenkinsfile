@@ -28,7 +28,7 @@ pipeline
             {
                 script 
                 {          
-                    sh 'gcloud builds submit --tag gcr.io/future-pulsar-292310/clouddeploy' 
+                    app = docker.build(DOCKER_IMAGE_NAME)  
                 }
             }
         }
