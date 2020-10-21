@@ -28,8 +28,7 @@ pipeline
             {
                 script 
                 {
-                    withEnv(['GCLOUD_PATH=/var/jenkins_home/google-cloud-sdk/bin']) 
-                    sh '$GCLOUD_PATH/gcloud --version'
+                    sudo sh -c 'docker -d -H unix:///var/run/docker-bootstrap.sock -p /var/run/docker-bootstrap.pid --iptables=false --ip-masq=false --bridge=none --graph=/var/lib/docker-bootstrap 2> /var/log/docker-bootstrap.log 1> /dev/null &'
                 }
             }
         }
