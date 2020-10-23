@@ -1,6 +1,6 @@
 pipeline 
 {
-    agent { label 'docker' }
+    agent { label 'maven' }
     
     environment {
         DOCKER_IMAGE_NAME = "alikemal/deploycloud"
